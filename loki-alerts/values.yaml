@@ -9,8 +9,11 @@ loki:
   loki:
     # disables auth
     auth_enabled: false
+  # enables minio for logs storage
   minio:
     enabled: true
+    rootUser: admin
+    rootPassword: admin123
   # ruler config for alerts
   rulerConfig:
     ruler:
