@@ -1,4 +1,24 @@
+############################
+## loki chart section     ##
+############################
 # Enables minio for Loki
 loki:
+  sidecar:
+    rules:
+      folder: "/var/loki/rules"
   minio:
     enabled: true
+  # ruler config for alerts
+  rulerConfig:
+    ruler:
+      storage:
+        type: local
+        local:
+          directory: /var/loki/rules
+      rule_path: /var/loki/rules
+      alertmanager_url: http://alertmanager-operated:9093
+      ring:
+        kvstore:
+          store: inmemory
+      enable_api: true
+      enable_alertmanager_v2: true
