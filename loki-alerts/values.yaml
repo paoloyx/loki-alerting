@@ -28,3 +28,11 @@ loki:
           store: inmemory
       enable_api: true
       enable_alertmanager_v2: true
+
+############################
+## promtail chart section ##
+############################
+promtail:
+  config:
+    clients:
+      - url: http://loki-gateway/loki/api/v1/push
