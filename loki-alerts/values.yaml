@@ -6,6 +6,9 @@ loki:
   sidecar:
     rules:
       folder: "/var/loki/rules"
+  loki:
+    # disables auth
+    auth_enabled: false
   minio:
     enabled: true
   # ruler config for alerts
