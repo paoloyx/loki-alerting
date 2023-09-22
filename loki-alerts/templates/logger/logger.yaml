@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-logger
+  labels:
+    app.kubernetes.io/name: random-logger
+    app.kubernetes.io/instance: random-logger-1.0.0
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/component: logger
+    app.kubernetes.io/part-of: loki-alerts
+    app.kubernetes.io/managed-by: helm
+spec:
+  selector:
+    matchLabels:
+      app: random-logger
+  template:
+    metadata:
+      labels:
+        app: random-logger
+    spec:
+      containers:
+      - name: random-logger
+        image: chentex/random-logger:v1.0.1

@@ -1,0 +1,4 @@
+# Enables minio for Loki
+loki:
+  minio:
+    enabled: true
