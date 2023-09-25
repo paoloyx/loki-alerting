@@ -1,9 +1,9 @@
 groups:
-  - name: too_much_errors
+  - name: too_much_workload_errors
     rules:
-      - alert: TooMuchErrors
+      - alert: TooMuchWorkloadErrors
         expr: |
-          sum(rate({namespace="default"} |= "error" [5m])) by (job) > 1
+          sum(rate({namespace=~".+"} |= "error" [5m])) by (namespace) > 0
         for: 1m
         labels:
             severity: critical
