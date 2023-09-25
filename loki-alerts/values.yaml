@@ -4,19 +4,14 @@
 # Enables minio for Loki
 loki:
   sidecar:
+    enableUniqueFilenames: true
     rules:
-      folder: "/var/loki/rules"
+      folder: "/var/loki/rules/fake"
   loki:
     # disables auth
     auth_enabled: false
-  # enables minio for logs storage
-  minio:
-    enabled: true
-    rootUser: admin
-    rootPassword: admin123
-  # ruler config for alerts
-  rulerConfig:
-    ruler:
+    # ruler config for alerts
+    rulerConfig:
       storage:
         type: local
         local:
@@ -28,6 +23,11 @@ loki:
           store: inmemory
       enable_api: true
       enable_alertmanager_v2: true
+  # enables minio for logs storage
+  minio:
+    enabled: true
+    rootUser: admin
+    rootPassword: admin123
 
 ############################
 ## promtail chart section ##
