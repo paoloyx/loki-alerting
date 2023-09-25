@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: random-logger
+  namespace: workloads
   labels:
     app.kubernetes.io/name: random-logger
     app.kubernetes.io/instance: random-logger-1.0.0
